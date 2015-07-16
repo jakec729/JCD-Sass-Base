@@ -1,0 +1,94 @@
+
+/* Breakpoint Vars */
+/* -------------------------------------- */
+
+$small-mobile: 550px;
+$mobile: 640px;
+$tablet: 720px;
+$medium-screen: 840px;
+$desktop: 1024px;
+
+$header-collapse: $tablet;
+
+
+/* Animation Vars */
+/* -------------------------------------- */
+
+$fast: 0.2s;
+$pace: 0.5s;
+$slow: 1.0s;
+
+
+/* Grid Vars */
+/* -------------------------------------- */
+
+$container-width: 90%;
+$content-width: 960px;
+$default-gutter: 2%;
+$default-total_cols: 12;
+
+
+/* Layout Vars */
+/* -------------------------------------- */
+
+$default-corners: .25em;
+
+
+/* COLORS */
+/* -------------------------------------- */
+
+$very-dark-accent: 	rgb(12,10,58);
+$dark-accent: 		rgb(39,36,139);
+$dark-neutral: 		rgb(77,77,77);
+$base-color: 		rgb(128,128,136);
+$mid-neutral:		rgb(170,170,170);
+$light-accent: 		rgb(149,146,255);
+$light-neutral: 	rgb(202,202,202);
+$off-white:			hsl(0,0,96);
+$white:				white;
+
+$blue-grey: 		rgb(65,64,100);
+
+/* Social Media Colors */
+/* -------------------------------------- */
+
+$twitter: 			#00aced;
+$facebook: 			#3b5998;
+// $googleplus: 		#dd4b39;
+$pinterest: 		#cb2027;
+$behance: 			#1769ff;
+$linkedin: 			#007bb6;
+// $youtube: 			#bb0000;
+// $vimeo: 				#aad450;
+// $tumblr: 			#32506d;
+// $instagram: 			#517fa4;
+// $flickr: 			#ff0084;
+// $dribbble: 			#ea4c89;
+// $quora: 				#a82400;
+// $foursquare: 		#0072b1;
+// $forrst: 			#5B9A68;
+// $vk: 				#45668e;
+// $wordpress: 			#21759b;
+// $stumbleupon: 		#EB4823;
+// $yahoo: 				#7B0099;
+// $blogger: 			#fb8f3d;
+// $soundcloud: 		#ff3a00;
+
+
+/* TYPOGRAPHY */
+/* -------------------------------------- */
+
+$base-font-size: 16px;
+$font-serif: "Adobe Garamond Pro", Georgia, serif;
+$font-sans: "franklin-gothic-urw-1","franklin-gothic-urw-2", "FranklinGothic URW", "Franklin Gothic Book", Helveitca, Arial, sans-serif;
+
+$post-font: $font-serif;
+$post-font-size: 1.25rem;
+$post-line-height: 1.9rem;
+$post-inset-padding: 6rem;
+$post-color: $dark-neutral;
+
+$article-single-sidebar-width: 18% !default;
+$article-blockquote-indent: 2rem !default;
+
+$default-tracking: .2em;

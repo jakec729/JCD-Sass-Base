@@ -1,0 +1,113 @@
+/* Functions */
+/* -------------------------------------- */
+
+@function em($px, $context: $base-font-size){
+	@return ($px / $context) + 0em;
+}
+
+/* Mixins */
+/* -------------------------------------- */
+
+@mixin text-tracked($tracking: $default-tracking) {
+	text-transform: uppercase;
+	letter-spacing: $tracking;
+}
+
+@mixin block($color: $light-accent, $width: 2em) {
+	content: '';
+	display: block;
+	background: $color;
+	width: $width;
+}
+
+@mixin block-separator($color: $light-accent, $width: 2em, $margin: 0.75em, $height: .125em){
+	&:after{
+		@include block($color, $width);
+		height: $height;
+		margin-top: $margin;		
+	}
+}
+
+@mixin comma-list(){
+	li {
+		display: inline-block;
+
+		&:after {
+			content: ","
+		}
+
+		&:last-of-type:after {
+			content: "";
+		}
+
+		& + li {
+			margin-left: .25rem;
+		}
+	}
+}
+
+@mixin indent($indent){
+	margin-left: $indent;
+	margin-right: $indent;
+}
+
+@mixin outdent($indent){
+	margin-left: (-1 * $indent);
+	margin-right: (-1 * $indent);
+}
+
+
+/* Base Styling */
+/* -------------------------------------- */
+
+html{
+	font-size: $base-font-size;
+	line-height: 1;
+	margin-top: 0;
+
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+body{
+	font-size: $base-font-size;
+	line-height: em(24px);
+}
+
+h1,h2,h3,h4,h5,h6{
+	margin: em(24px) 0em;
+	padding: 0em;
+}
+
+strong {
+	color: $dark-accent;
+}
+
+hr{
+	border: none;
+	background: $light-accent;
+	height: 1px;
+	margin: 6em 0;
+}
+
+
+/* Helpers */
+/* -------------------------------------- */
+
+.text-centered {
+	text-align: center;
+}
+
+.hr{
+	display: block;
+	border-bottom: 1px solid $light-accent;
+	margin: 6em 0;
+
+	&::before{
+		content: "";
+	}
+}
+
+.tracked {
+	@include text-tracked();
+}
