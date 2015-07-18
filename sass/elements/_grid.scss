@@ -1,0 +1,103 @@
+/* ----------------------------------------------------
+ * GRID
+ * ------------------------------------------------- */
+
+
+
+/* MIXINS */
+/* -------------------------------------- */
+
+@mixin clearfix{
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin centered($width: null) {
+	width: $width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin group(){
+	@include clearfix;
+	display: block;
+	width: 100%;
+}
+
+@function col-width( $cols, $total: $default-total-cols, $gutter: $default-gutter ){
+	$remaining-width: 100% - ($total - 1) * $gutter;
+	$absorbed: ($cols - 1) * $gutter;
+	$col-width: $remaining-width / $total * $cols + $absorbed;
+
+	@return $col-width;
+}
+
+@mixin column-base{
+	float: left;
+	display: block;
+}
+
+@mixin column( $cols, $total: $default-total-cols, $gutter: $default-gutter ) {
+	@include column-base;
+    width: col-width( $cols, $total, $gutter );
+
+    & + [class*="col-"]{
+    	margin-left: $gutter;
+    }
+}
+
+@mixin responsive-column( $cols, $total: $default-total-cols, $gutter: $default-gutter, $breakpoint: null ){
+	width: 100%;
+
+	@include bp-min($breakpoint){
+		@include column( $cols, $total, $gutter );
+	}
+}
+
+
+/* STYLES */
+/* -------------------------------------- */
+
+.container {
+	margin: 0 auto;
+	width: $container-width;
+	@include clearfix;
+
+	@include bp-min($desktop){
+		width: $content-width;
+	}
+}
+
+.row,
+.group {
+	@include group;
+}
+
+@for $i from 1 to $default-total-cols {
+
+	.col-#{$i}{
+		@include column( $cols: $i );
+	}
+	
+	.col-xs-#{$i}{
+		@include responsive-column( $cols: $i, $breakpoint: $small-mobile );
+	}
+
+	.col-sm-#{$i}{
+		@include responsive-column( $cols: $i, $breakpoint: $mobile );
+	}
+
+	.col-md-#{$i}{
+		@include responsive-column( $cols: $i, $breakpoint: $medium-screen );
+	}
+
+	.col-lg-#{$i}{
+		@include responsive-column( $cols: $i, $breakpoint: $desktop );
+	}
+
+}
+
+

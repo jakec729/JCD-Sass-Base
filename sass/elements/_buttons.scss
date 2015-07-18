@@ -1,0 +1,28 @@
+@mixin pill(){
+	padding: 1em;
+	border-radius: .25em;	
+}
+
+@mixin btn-pill(){
+	@include pill;
+	background: $light-neutral;
+}
+
+@mixin btn-pill-hover(){
+	@include pill;
+
+	&:hover {
+		background: $light-neutral;
+	}
+}
+
+@mixin btn-pill-outline($color: $off-white, $hover: $dark-neutral){
+	@include pill;
+	border: 1px solid $color;
+	transition: all .3s;
+
+	&:hover {
+		border-color: $hover;
+		color: $hover;
+	}
+}

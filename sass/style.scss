@@ -1,4 +1,41 @@
+/* ----------------------------------------------------
+ * SASS MANIFEST FILE
+ * ------------------------------------------------- */
+
+
+/* CONFIG */
+/* -------------------------------------- */
+
 @import "config/variables";
 @import "theme/primary";
 
+
+/* ELEMENTS */
+/* -------------------------------------- */
+
+@import "elements/mediaqueries";
+@import "elements/grid";
 @import "elements/typography";
+@import "elements/buttons";
+@import "elements/lists";
+
+
+/* COMPONENTS */
+/* -------------------------------------- */
+
+@import "components/nav";
+
+
+/* SECTIONS */
+/* -------------------------------------- */
+
+@import "sections/page";
+@import "sections/header";
+@import "sections/footer";
+@import "sections/sidebar";
+
+
+/* OVERRIDES */
+/* -------------------------------------- */
+
+@import "_shame";

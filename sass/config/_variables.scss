@@ -25,7 +25,7 @@ $slow: 1.0s;
 $container-width: 90%;
 $content-width: 960px;
 $default-gutter: 2%;
-$default-total_cols: 12;
+$default-total-cols: 12;
 
 
 /* Layout Vars */
@@ -78,9 +78,11 @@ $linkedin: 			#007bb6;
 /* TYPOGRAPHY */
 /* -------------------------------------- */
 
-$base-font-size: 16px;
+$base-font-size: 16px !default;
+$base-line-height: 1.2em !default;
 $font-serif: "Adobe Garamond Pro", Georgia, serif;
-$font-sans: "franklin-gothic-urw-1","franklin-gothic-urw-2", "FranklinGothic URW", "Franklin Gothic Book", Helveitca, Arial, sans-serif;
+$font-sans: "Franklin Gothic Book", Helveitca, Arial, sans-serif;
+$modular-type-ratio: (5/4) !default;
 
 $post-font: $font-serif;
 $post-font-size: 1.25rem;

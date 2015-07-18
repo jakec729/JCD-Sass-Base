@@ -56,6 +56,24 @@
 	margin-right: (-1 * $indent);
 }
 
+@function modular-type( $level, $base: $base-font-size, $ratio: $modular-type-ratio ){
+	$size: $base;
+
+	@if ($level > 1) {
+		@for $i from 1 to ($level - 1){
+			$size: $size * $ratio;
+		}
+	}
+
+	@return $size;
+}
+
+h1 { font-size: modular-type(6); }
+h2 { font-size: modular-type(5); }
+h3 { font-size: modular-type(4); }
+h4 { font-size: modular-type(3); }
+h5 { font-size: modular-type(2); }
+h6 { font-size: modular-type(1); }
 
 /* Base Styling */
 /* -------------------------------------- */
@@ -71,12 +89,17 @@ html{
 
 body{
 	font-size: $base-font-size;
-	line-height: em(24px);
+	line-height: $base-line-height;
+	font-family: $font-sans;
+	font-weight: normal;
+	font-weight: 400;
 }
 
 h1,h2,h3,h4,h5,h6{
-	margin: em(24px) 0em;
-	padding: 0em;
+	margin: 0;
+	line-height: 1.125em;
+	font-weight: bold;
+	font-weight: 700;
 }
 
 strong {

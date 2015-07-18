@@ -1,0 +1,19 @@
+.nav-inline {
+	ul {
+		@include list-inline;
+	}
+}
+
+.nav-pills {
+	li > a {
+		text-decoration: none;
+		@include btn-pill-hover;
+	}
+}
+
+.nav-pills--outline {
+	li > a {
+		text-decoration: none;
+		@include btn-pill-outline;
+	}
+}
