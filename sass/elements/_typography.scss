@@ -60,20 +60,13 @@
 	$size: $base;
 
 	@if ($level > 1) {
-		@for $i from 1 to ($level - 1){
+		@for $i from 1 to ($level){
 			$size: $size * $ratio;
 		}
 	}
 
 	@return $size;
 }
-
-h1 { font-size: modular-type(6); }
-h2 { font-size: modular-type(5); }
-h3 { font-size: modular-type(4); }
-h4 { font-size: modular-type(3); }
-h5 { font-size: modular-type(2); }
-h6 { font-size: modular-type(1); }
 
 /* Base Styling */
 /* -------------------------------------- */
@@ -96,11 +89,37 @@ body{
 }
 
 h1,h2,h3,h4,h5,h6{
-	margin: 0;
 	line-height: 1.125em;
 	font-weight: bold;
 	font-weight: 700;
 }
+
+h1 { font-size: modular-type(6); }
+h2 { font-size: modular-type(5); }
+h3 { font-size: modular-type(4); }
+h4 { font-size: modular-type(3); }
+h5 { font-size: modular-type(2); }
+h6 { font-size: modular-type(1); }
+
+h1,h2,h3,h4,h5,h6,
+p,
+ul,
+ol,
+dl,
+blockquote,
+hr, {
+	margin: 1.5em 0;
+}
+
+figure {
+	margin: 3em 0;
+}
+
+// .page-title,
+// .widget-title,
+// .section-heading {
+// 	margin-top: 0;
+// }
 
 strong {
 	color: $dark-accent;
@@ -109,8 +128,22 @@ strong {
 hr{
 	border: none;
 	background: $light-accent;
-	height: 1px;
+	height: 2px;
 	margin: 6em 0;
+}
+
+blockquote {
+	font-size: modular-type(2);
+	padding: 1em 0 1em 1.5em;
+	border-left: 2px solid $light-neutral;
+}
+
+figcaption {
+	font-size: .85rem;
+	padding: 1em 0 0;
+	// border-bottom: 1px solid $light-neutral;
+	color: $dark-neutral;
+	font-style: italic;
 }
 
 

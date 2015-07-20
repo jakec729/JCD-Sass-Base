@@ -7,3 +7,22 @@ body {
 .site-content {
 	padding: 2em 0;
 }
+
+.page-body {
+	margin: 2em 0;
+}
+
+.sample-content {
+	& + & {
+		margin-top: 2em;
+	}
+
+	.section-heading {
+		// @include text-tracked;
+		@include block-separator;
+		margin-bottom: 1em;
+		font-weight: bold;
+		font-weight: 700;
+		font-size: 1.5rem;
+	}
+}
