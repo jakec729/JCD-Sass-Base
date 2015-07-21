@@ -10,6 +10,15 @@ $desktop: 1024px;
 
 $header-collapse: $tablet;
 
+$grid-bp-array: (
+	xs: $small-mobile,
+	sm: $mobile,
+	md: $medium-screen,
+	lg: $desktop
+);
+
+
+
 
 /* Animation Vars */
 /* -------------------------------------- */

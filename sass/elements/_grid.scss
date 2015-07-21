@@ -1,11 +1,6 @@
-/* ----------------------------------------------------
- * GRID
- * ------------------------------------------------- */
 
-
-
-/* MIXINS */
-/* -------------------------------------- */
+ /* STATES / HELPERS */
+ /* -------------------------------------- */
 
 @mixin clearfix{
 	&:after {
@@ -15,10 +10,22 @@
 	}
 }
 
+@mixin column-base{
+	float: left;
+	display: block;
+}
+
 @mixin centered($width: null) {
 	width: $width;
 	margin-left: auto;
 	margin-right: auto;
+	display: block;
+}
+
+%full-width {
+	display: block;
+	float: none;
+	width: 100%;
 }
 
 @mixin group(){
@@ -27,17 +34,16 @@
 	width: 100%;
 }
 
+
+/* GRID */
+/* -------------------------------------- */
+
 @function col-width( $cols, $total: $default-total-cols, $gutter: $default-gutter ){
 	$remaining-width: 100% - ($total - 1) * $gutter;
 	$absorbed: ($cols - 1) * $gutter;
 	$col-width: $remaining-width / $total * $cols + $absorbed;
 
 	@return $col-width;
-}
-
-@mixin column-base{
-	float: left;
-	display: block;
 }
 
 @mixin column( $cols, $total: $default-total-cols, $gutter: $default-gutter ) {
@@ -49,11 +55,26 @@
     }
 }
 
-@mixin responsive-column( $cols, $total: $default-total-cols, $gutter: $default-gutter, $breakpoint: null ){
-	width: 100%;
+@mixin responsive-column( $breakpoint, $cols, $total: $default-total-cols, $gutter: $default-gutter ){
+	@extend %full-width;
 
 	@include bp-min($breakpoint){
 		@include column( $cols, $total, $gutter );
+	}
+}
+
+
+@mixin render-columns( $pre: 'col', $bp-array: $grid-bp-array ){
+	@for $i from 1 through $default-total-cols {
+		.#{$pre}-#{$i}{
+			@include column( $cols: $i );
+		}
+
+		@each $id in map-keys($grid-bp-array){
+			.#{$pre}-#{$id}-#{$i} {
+				@include responsive-column( map-get($grid-bp-array, $id), $i);
+			}
+		}
 	}
 }
 
@@ -76,28 +97,8 @@
 	@include group;
 }
 
-@for $i from 1 to $default-total-cols {
+@include render-columns();
 
-	.col-#{$i}{
-		@include column( $cols: $i );
-	}
-	
-	.col-xs-#{$i}{
-		@include responsive-column( $cols: $i, $breakpoint: $small-mobile );
-	}
 
-	.col-sm-#{$i}{
-		@include responsive-column( $cols: $i, $breakpoint: $mobile );
-	}
-
-	.col-md-#{$i}{
-		@include responsive-column( $cols: $i, $breakpoint: $medium-screen );
-	}
-
-	.col-lg-#{$i}{
-		@include responsive-column( $cols: $i, $breakpoint: $desktop );
-	}
-
-}
 
 
