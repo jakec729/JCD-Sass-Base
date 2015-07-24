@@ -23,7 +23,7 @@
 
 	li > a {
 		text-decoration: none;
-		@include btn-pill-outline-fill($color: $off-white, $hover: $light-neutral, $radius: 0 );
+		@include btn-pill-outline-fill($color: $off-white, $hover: $light-grey, $radius: 0 );
 	}
 
 	li:first-of-type > a {

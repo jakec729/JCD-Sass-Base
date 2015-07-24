@@ -1,42 +1,39 @@
 /* ----------------------------------------------------
- * SASS MANIFEST FILE
+ * SASS Manifest File
  * ------------------------------------------------- */
 
-
-/* CONFIG */
-/* -------------------------------------- */
-
-@import "config/variables";
+// SETUP
 @import "theme/primary";
 
+// SETTINGS
+@import "config/variables";
+@import "config/reset";
+@import "config/plugins";
 
-/* ELEMENTS */
-/* -------------------------------------- */
+// STYLING
+@import "attributes/responsive";
+@import "attributes/typography";
+@import "attributes/animation";
+@import "attributes/borders";
 
-@import "elements/mediaqueries";
-@import "elements/grid";
-@import "elements/images";
-@import "elements/typography";
+// ELEMENTS
 @import "elements/buttons";
+@import "elements/images";
 @import "elements/lists";
+@import "elements/forms";
 
-
-/* COMPONENTS */
-/* -------------------------------------- */
-
+// COMPONENTS
+@import "components/grid";
+@import "components/story";
 @import "components/nav";
 
-
-/* SECTIONS */
-/* -------------------------------------- */
-
-@import "sections/page";
+// SECTIONS
 @import "sections/header";
 @import "sections/footer";
 @import "sections/sidebar";
 
+// PAGES
+@import "pages/master";
 
-/* OVERRIDES */
-/* -------------------------------------- */
-
+// QUICKFIXES
 @import "_shame";

@@ -1,0 +1,104 @@
+.longform {
+	padding: 0 $story-indent;
+
+	@include bp-min($medium-screen){
+		margin: 0 20%;
+	}
+
+	p,
+	ul,
+	ol,
+	dl,
+	aside {
+		margin-top: 2em;
+		margin-bottom: 2em;
+	}
+
+	blockquote {
+		font-size: 1.75rem;
+		line-height: 2.25rem;
+		padding: 1.5em 0;
+		border: 0;
+
+		@include bp-min($medium-screen){
+			text-align: center;
+			margin: 0 -3em;
+		}
+	}
+
+	figure {
+		position: relative;
+
+		@include bp-min($medium-screen){
+			margin-left: -4em;
+			margin-right: -4em;
+			display: block;
+
+			&.caption-left,
+			&.caption-right{
+				margin-left: 0;
+				margin-right: 0;
+
+				figcaption {
+					width: ($story-aside-width - $story-aside-gutter);
+					position: absolute;
+					top: 0;
+					padding-top: .75rem;
+					border-top: 4px solid $off-white;			
+					border-bottom: none;
+				}
+			}
+
+			&.caption-left figcaption {
+				left: (-1 * $story-aside-width);
+			}
+
+			&.caption-right figcaption {
+				right: (-1 * $story-aside-width);
+			}
+		}
+
+	}
+
+	aside,
+	aside p,
+	figcaption {
+		font-size: .85rem;
+		line-height: 1.25rem;
+		color: $aside-color;
+		font-style: italic;
+	}
+
+	figcaption {
+		padding: .5rem 0;
+		border-bottom: 1px solid $off-white;
+	}
+
+	aside{
+		padding-top: .75rem;
+		border-top: 4px solid $off-white;			
+
+		@include bp-min($medium-screen){
+
+			&.aside-left,
+			&.aside-right {
+				width: ($story-aside-width - $story-aside-gutter);	
+				margin-top: 0;
+			}
+
+			&.aside-left {
+				float: left;
+				margin-left: (-1 * $story-aside-width);
+			}
+
+			&.aside-right {
+				float: right;
+				margin-right: -(-1 * $story-aside-width);
+			}
+		}
+
+		p{
+			margin: 0;
+		}
+	}
+}
