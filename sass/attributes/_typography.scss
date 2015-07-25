@@ -56,6 +56,11 @@
 	margin-right: (-1 * $indent);
 }
 
+@mixin context-outdent($outdent, $container){
+	@include outdent( context($outdent, $container) );
+	width: 100% + context( (2 * $outdent), $container);
+}
+
 @function modular-type( $level, $base: $base-font-size, $ratio: $modular-type-ratio ){
 	$size: $base;
 

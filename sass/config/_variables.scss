@@ -1,52 +1,4 @@
 
-/* Breakpoint Vars */
-/* -------------------------------------- */
-
-$small-mobile: 550px !default;
-$mobile: 640px !default;
-$tablet: 720px !default;
-$medium-screen: 840px !default;
-$desktop: 1024px !default;
-
-$grid-bp-array: (
-	xs: $small-mobile,
-	sm: $mobile,
-	md: $medium-screen,
-	lg: $desktop
-) !default;
-
-
-/* Animation Vars */
-/* -------------------------------------- */
-
-$fast: 0.2s !default;
-$pace: 0.5s !default;
-$slow: 1.0s !default;
-
-
-/* Grid Vars */
-/* -------------------------------------- */
-
-$container-width: 90% !default;
-$content-width: 960px !default;
-$default-gutter: 2% !default;
-$default-total-cols: 12 !default;
-
-
-/* Story Vars */
-/* -------------------------------------- */
-
-$story-indent: 10% !default;
-$story-aside-width: $story-indent !default;
-$story-aside-gutter: $default-gutter !default;
-
-
-/* Layout Vars */
-/* -------------------------------------- */
-
-$default-corners: .25em !default;
-
-
 /* COLORS */
 /* -------------------------------------- */
 
@@ -141,3 +93,61 @@ $post-color: $text-color !default;
 
 $article-single-sidebar-width: 18% !default;
 $article-blockquote-indent: 2rem !default;
+
+/* Breakpoint Vars */
+/* -------------------------------------- */
+
+$small-mobile: 550px !default;
+$mobile: 640px !default;
+$tablet: 720px !default;
+$medium-screen: 840px !default;
+$desktop: 1024px !default;
+
+$grid-bp-array: (
+	xs: $small-mobile,
+	sm: $mobile,
+	md: $medium-screen,
+	lg: $desktop
+) !default;
+
+
+/* Animation Vars */
+/* -------------------------------------- */
+
+$fast: 0.2s !default;
+$pace: 0.5s !default;
+$slow: 1.0s !default;
+
+
+/* Grid Vars */
+/* -------------------------------------- */
+
+$container-width: 90% !default;
+$content-width: 960px !default;
+$default-gutter: 2% !default;
+$default-total-cols: 12 !default;
+
+
+/* Story Vars */
+/* -------------------------------------- */
+
+// $story-indent: 10% !default;
+// $story-aside-width: $story-indent !default;
+// $story-aside-gutter: $default-gutter !default;
+
+@function context( $desired, $container ){
+	@return $desired / $container * 100%;
+}
+
+$longform-content-width: 60%;
+$longform-sidebar-width: (100% - $longform-content-width) / 2;
+$longform-aside-width: context($longform-sidebar-width, $longform-content-width);
+$longform-figure-outdent: 5%;
+
+
+
+/* Layout Vars */
+/* -------------------------------------- */
+
+$default-corners: .25em !default;
+

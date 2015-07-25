@@ -1,15 +1,32 @@
-.longform {
-	padding: 0 $story-indent;
 
-	@include bp-min($medium-screen){
-		margin: 0 20%;
+.longform {
+
+	aside,
+	.longform-sidebar {
+		width: $longform-sidebar-width;
+		padding-right: 1em
+	}
+
+	.longform-sidebar {
+		float: left;
+	}
+
+	.aside-left {
+		position: absolute;
+		left: -1 * $longform-aside-width;
+		width: $longform-aside-width;
+	}
+
+	.longform-content {
+		margin-left: $longform-sidebar-width;
+		margin-right: $longform-sidebar-width;
+		position: relative;
 	}
 
 	p,
 	ul,
 	ol,
-	dl,
-	aside {
+	dl {
 		margin-top: 2em;
 		margin-bottom: 2em;
 	}
@@ -27,38 +44,42 @@
 	}
 
 	figure {
-		position: relative;
-
-		@include bp-min($medium-screen){
-			margin-left: -4em;
-			margin-right: -4em;
-			display: block;
-
-			&.caption-left,
-			&.caption-right{
-				margin-left: 0;
-				margin-right: 0;
-
-				figcaption {
-					width: ($story-aside-width - $story-aside-gutter);
-					position: absolute;
-					top: 0;
-					padding-top: .75rem;
-					border-top: 4px solid $off-white;			
-					border-bottom: none;
-				}
-			}
-
-			&.caption-left figcaption {
-				left: (-1 * $story-aside-width);
-			}
-
-			&.caption-right figcaption {
-				right: (-1 * $story-aside-width);
-			}
-		}
-
+		@include context-outdent( $longform-figure-outdent, $longform-content-width );
 	}
+
+	// figure {
+	// 	position: relative;
+
+	// 	@include bp-min($medium-screen){
+	// 		margin-left: -4em;
+	// 		margin-right: -4em;
+	// 		display: block;
+
+	// 		&.caption-left,
+	// 		&.caption-right{
+	// 			margin-left: 0;
+	// 			margin-right: 0;
+
+	// 			figcaption {
+	// 				width: ($story-aside-width - $story-aside-gutter);
+	// 				position: absolute;
+	// 				top: 0;
+	// 				padding-top: .75rem;
+	// 				border-top: 4px solid $off-white;			
+	// 				border-bottom: none;
+	// 			}
+	// 		}
+
+	// 		&.caption-left figcaption {
+	// 			left: (-1 * $story-aside-width);
+	// 		}
+
+	// 		&.caption-right figcaption {
+	// 			right: (-1 * $story-aside-width);
+	// 		}
+	// 	}
+
+	// }
 
 	aside,
 	aside p,
@@ -74,31 +95,32 @@
 		border-bottom: 1px solid $off-white;
 	}
 
-	aside{
-		padding-top: .75rem;
-		border-top: 4px solid $off-white;			
+	// aside{
+	// 	padding-top: .75rem;
+	// 	border-top: 4px solid $off-white;			
+	// }
 
-		@include bp-min($medium-screen){
+	// 	@include bp-min($medium-screen){
 
-			&.aside-left,
-			&.aside-right {
-				width: ($story-aside-width - $story-aside-gutter);	
-				margin-top: 0;
-			}
+	// 		&.aside-left,
+	// 		&.aside-right {
+	// 			width: ($story-aside-width - $story-aside-gutter);	
+	// 			margin-top: 0;
+	// 		}
 
-			&.aside-left {
-				float: left;
-				margin-left: (-1 * $story-aside-width);
-			}
+	// 		&.aside-left {
+	// 			float: left;
+	// 			margin-left: (-1 * $story-aside-width);
+	// 		}
 
-			&.aside-right {
-				float: right;
-				margin-right: -(-1 * $story-aside-width);
-			}
-		}
+	// 		&.aside-right {
+	// 			float: right;
+	// 			margin-right: -(-1 * $story-aside-width);
+	// 		}
+	// 	}
 
-		p{
-			margin: 0;
-		}
-	}
+	// 	p{
+	// 		margin: 0;
+	// 	}
+	// }
 }
