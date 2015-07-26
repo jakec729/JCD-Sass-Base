@@ -1,23 +1,28 @@
-@mixin pill($radius: .25em){
-	padding: 1em;
+@mixin pill($radius: .25em, $padding: 1em){
+	padding: $padding;
 	border-radius: $radius;	
+	display: inline-block;
+	width: initial;
 }
 
-@mixin btn-pill(){
+@mixin btn-pill($background: $light-grey){
 	@include pill;
-	background: $light-grey;
+	background: $background;
 }
 
-@mixin btn-pill-hover(){
-	@include pill;
+@mixin btn-pill-hover($bg:transparent, $hover:$light-grey){
+	@include btn-pill($bg);
+	@include transition;
 
 	&:hover {
-		background: $light-grey;
+		color: white;
+		background: $hover;
 	}
 }
 
 @mixin btn-pill-outline($color: $off-white, $hover: $dark-grey, $radius: .25em){
 	@include pill($radius);
+	@include transition;
 	border: 1px solid $color;
 	transition: all .3s;
 
