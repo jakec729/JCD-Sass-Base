@@ -20,11 +20,16 @@
 	width: $width;
 }
 
-@mixin block-separator($color: $block-color, $width: $block-width, $margin: $block-margin, $height: $block-height){
+@mixin block-separator($color: $block-color, $width: $block-width, $margin: $block-margin, $height: $block-height, $centered: false){
 	&:after{
 		@include block($color, $width);
 		height: $height;
-		margin-top: $margin;		
+		margin-top: $margin;	
+
+		@if $centered {
+			margin-left: auto;
+			margin-right: auto;
+		}	
 	}
 }
 
@@ -73,7 +78,11 @@
 	@return $size;
 }
 
-/* Base Styling */
+@function mt( $level, $base: $base-font-size, $ratio: $modular-type-ratio ){
+	@return modular-type( $level, $base, $ratio );
+}
+
+/* Base Styling */ 
 /* -------------------------------------- */
 
 html{
@@ -96,8 +105,6 @@ body{
 
 h1,h2,h3,h4,h5,h6{
 	line-height: 1.125em;
-	font-weight: bold;
-	font-weight: 700;
 	font-family: $headline-font;
 }
 
@@ -109,12 +116,12 @@ h2,h3,h4,h5,h6 {
 	color: $subheading-color;
 }
 
-h1 { font-size: modular-type(6); }
-h2 { font-size: modular-type(5); }
-h3 { font-size: modular-type(4); }
-h4 { font-size: modular-type(3); }
-h5 { font-size: modular-type(2); }
-h6 { font-size: modular-type(1); }
+h1, .mt-6 { font-size: modular-type(6); }
+h2, .mt-5 { font-size: modular-type(5); }
+h3, .mt-4 { font-size: modular-type(4); }
+h4, .mt-3 { font-size: modular-type(3); }
+h5, .mt-2 { font-size: modular-type(2); }
+h6, .mt-1 { font-size: modular-type(1); }
 
 h1,h2,h3,h4,h5,h6,
 p,
@@ -162,6 +169,18 @@ a {
 	}
 }
 
+p {
+	line-height: $base-line-height;
+}
+
+ol {
+	list-style-type: decimal-leading-zero;
+}
+
+li {
+	margin: .5em 0;
+}
+
 
 
 /* Helpers */
@@ -169,7 +188,20 @@ a {
 
 .text-centered {
 	text-align: center;
+
+	@include map-to-grid("max") {
+		text-align: center;
+	}
 }
+
+.text-right {
+	text-align: right;
+
+	@include map-to-grid("max") {
+		text-align: right;
+	}
+}
+
 
 .hr{
 	display: block;
@@ -183,4 +215,8 @@ a {
 
 .tracked {
 	@include text-tracked();
+}
+
+.lead {
+	font-size: mt(2);
 }

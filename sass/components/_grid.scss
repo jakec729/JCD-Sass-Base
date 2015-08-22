@@ -18,6 +18,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+	float: none !important;
 }
 
 %full-width {
@@ -53,6 +54,10 @@
     }
 }
 
+@mixin col-push( $cols, $total: $default-total-cols, $gutter: $default-gutter ) {
+	margin-left: col-width( $cols, $total, $gutter ) + $gutter;
+}
+
 @mixin responsive-column( $breakpoint, $cols, $total: $default-total-cols, $gutter: $default-gutter ){
 	@extend %full-width;
 
@@ -85,14 +90,19 @@
 	flex-direction: $direction;
 }
 
-@function flex-width( $cols, $total: $default-total-cols ){
-	$col-width: (100% * $cols / $total);
+@function flex-width( $cols, $total: $default-total-cols, $gutter: $default-gutter ){
+	$col-width: col-width( $cols, $total, $gutter );
 
 	@return $col-width;
 }
 
-@mixin flex-column( $cols, $total: $default-total-cols ){
-	width: flex-width($cols, $total);
+@mixin flex-column( $cols, $total: $default-total-cols, $gutter: $default-gutter, $pre: "flex" ){
+	width: flex-width($cols, $total, $gutter);
+
+	& + [class*=#{$pre}]{
+		margin-left: $gutter;
+	}
+
 }
 
 @mixin responsive-flex-column( $breakpoint, $cols, $total: $default-total-cols ){
@@ -129,6 +139,22 @@
 	}
 }
 
+@mixin grid-item($target, $total){
+	$row: $total / $target;
+	$repeat: "#{$row}n+1";
+
+	@include column($target, $total);
+
+	& + .grid-item {
+		margin-left: $default-gutter;
+	}
+
+	&:nth-of-type(#{$repeat}){
+		margin-left: 0;
+	}
+}
+
+
 
 /* STYLES */
 /* -------------------------------------- */
@@ -150,6 +176,29 @@
 
 .flex-group {
 	@include flex-group;
+}
+
+.flex-row-center {
+	align-items: center;
+}
+
+.centered {
+	@include centered();
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+.grid-3-up {
+	.grid-item {
+		@include bp-between($mobile, $medium-screen){
+			@include grid-item(6,12);
+		}
+		@include bp-min($medium-screen){
+			@include grid-item(4,12);
+		}
+	}
 }
 
 @include render-columns();
