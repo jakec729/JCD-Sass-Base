@@ -5,13 +5,13 @@
 	width: initial;
 }
 
-@mixin btn-pill($background: $light-grey){
-	@include pill;
+@mixin btn-pill($background: $light-grey, $radius: .25em){
+	@include pill($radius);
 	background: $background;
 }
 
-@mixin btn-pill-hover($bg:transparent, $hover:$light-grey){
-	@include btn-pill($bg);
+@mixin btn-pill-hover($bg:transparent, $hover:$light-grey, $radius: .25em){
+	@include btn-pill($bg, $radius);
 	@include transition;
 
 	&:hover {
