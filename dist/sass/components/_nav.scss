@@ -1,0 +1,123 @@
+nav {
+	text-align: center;
+
+	.link-wrapper {
+		margin-top: 2em;
+	}
+
+	@include bp-min($desktop){
+		text-align: left;
+
+		.link-wrapper {
+			margin-top: 0;
+		}
+	}
+
+	ul li a {
+		font-size: 1.125rem;
+	}
+}
+
+.nav-inline ul {
+	@include list-inline;
+}
+
+.nav-block {
+	display: block;
+
+	ul {
+		@include list-inline($spacing: 0);
+	}
+}
+
+.nav-right ul{
+	@include bp-min($medium-screen){
+		@include list-inline;
+	}
+
+	@include bp-min($desktop) {
+		text-align: right;
+	}
+}
+
+.nav-blocks {
+	font-size: 0;
+	border-top: 1px solid $off-white;
+	border-bottom: 1px solid $off-white;
+
+	li {
+		font-size: 1rem;
+	}
+
+	li > a {
+		text-decoration: none;
+		@include btn-pill-outline-fill($color: $off-white, $hover: $light-grey, $radius: 0 );
+	}
+
+	li:first-of-type > a {
+		border-left-width: 2px;
+	}
+
+	li:last-of-type > a {
+		border-right-width: 2px;
+	}
+
+}
+
+.nav-pills li > a {
+	text-decoration: none;
+	@include btn-pill-hover;
+}
+
+.nav-pills--outline li > a {
+	text-decoration: none;
+	@include btn-pill-outline;
+}
+
+.nav-hover-pills ul li a {
+	@include btn-pill-hover($off-white, $radius: .5em);
+	position: relative;
+}
+
+.nav-collapse {
+	@include bp-max($medium-screen) {
+		.site-header & .site-title {
+			margin-bottom: 2em;
+		}
+		ul {
+			display: none;
+		}
+	}
+
+	.nav-toggle {
+		@include bp-min($medium-screen) {
+			display: none;
+		}
+	}
+}
+
+.nav-links-show {
+	@include bp-max($medium-screen) {
+
+		.nav-collapse ul {
+			display: block;
+		}
+
+		.nav-collapse li {
+			margin-top: 1em;
+		}
+	}
+}
+
+.nav-toggle {
+	@include transition;
+	&:hover {
+		background: $accent-color;
+		color: $white;
+	}
+}
+
+.post-nav {
+	border-top: 2px solid $off-white;
+	padding: 2em 0;
+}

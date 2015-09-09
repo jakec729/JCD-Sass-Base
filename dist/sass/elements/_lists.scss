@@ -1,0 +1,57 @@
+@mixin ol-styled($increment-name, $after: ".", $indent: 3em, $counter-size: 1.5em){
+	list-style-type: none;
+	counter-reset: #{$increment-name};
+	margin-left: $indent;
+	padding-left: 0;
+
+	li {
+		position: relative;
+
+		&:before {
+			content: counter(#{$increment-name}) $after;
+			counter-increment: #{$increment-name};
+
+			position: absolute;
+			top: 0;
+			font-size: $counter-size;
+			left: (-1em * $indent / $counter-size);
+		}
+
+	}
+}
+
+
+
+@mixin list-inline($spacing: .5em) {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		display: inline-block;
+	}
+
+	li + li {
+		margin-left: $spacing;
+	}
+
+	li > a {
+		display: block;
+	}
+}
+
+dl {
+	dt,dd {
+		margin: 0;
+		padding: 0;
+	}
+
+	dt {
+		font-weight: bold;
+		font-weight: 700;
+	}
+
+	dd + dt {
+		margin-top: 1em;
+	}
+}
