@@ -1,16 +1,16 @@
-@mixin pill($radius: .25em, $padding: 1em){
+@mixin pill($radius: .25rem, $padding: 1em){
 	padding: $padding;
 	border-radius: $radius;	
 	display: inline-block;
 	width: initial;
 }
 
-@mixin btn-pill($background: $light-grey, $radius: .25em){
+@mixin btn-pill($background: $light-grey, $radius: .25rem){
 	@include pill($radius);
 	background: $background;
 }
 
-@mixin btn-pill-hover($bg:transparent, $hover:$light-grey, $radius: .25em){
+@mixin btn-pill-hover($bg:transparent, $hover:$light-grey, $radius: .25rem){
 	@include btn-pill($bg, $radius);
 	@include transition;
 
@@ -20,7 +20,11 @@
 	}
 }
 
-@mixin btn-pill-outline($color: $off-white, $hover: $dark-grey, $radius: .25em){
+.pill-hover-list li a {
+	@include btn-pill-hover;
+}
+
+@mixin btn-pill-outline($color: $off-white, $hover: $dark-grey, $radius: .25rem){
 	@include pill($radius);
 	@include transition;
 	border: 1px solid $color;
@@ -32,10 +36,17 @@
 	}
 }
 
-@mixin btn-pill-outline-fill($color: $off-white, $hover: $dark-grey, $radius: .25em){
+@mixin btn-pill-outline-fill($color: $off-white, $hover: $dark-grey, $radius: .25rem){
 	@include btn-pill-outline($color, $hover, $radius);
 	&:hover {
 		color: $white;
 		background-color: $hover;
 	}
+}
+
+button {
+	font-size: 1rem;
+	border: none;
+	color: $white;
+	@include btn-pill-hover($bg: $primary-color);
 }

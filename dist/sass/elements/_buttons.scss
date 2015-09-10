@@ -39,3 +39,7 @@
 		background-color: $hover;
 	}
 }
+
+button {
+	@include btn-pill;
+}
