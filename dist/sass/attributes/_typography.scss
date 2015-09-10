@@ -8,7 +8,7 @@
 /* Mixins */
 /* -------------------------------------- */
 
-@mixin text-tracked($tracking: $default-tracking) {
+@mixin tracking($tracking: $default-tracking) {
 	text-transform: uppercase;
 	letter-spacing: $tracking;
 }
@@ -173,15 +173,6 @@ p {
 	line-height: $base-line-height;
 }
 
-ol {
-	list-style-type: decimal-leading-zero;
-}
-
-li {
-	margin: .5em 0;
-}
-
-
 
 /* Helpers */
 /* -------------------------------------- */
@@ -214,7 +205,7 @@ li {
 }
 
 .tracked {
-	@include text-tracked();
+	@include tracking();
 }
 
 .lead {

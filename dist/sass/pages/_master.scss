@@ -18,7 +18,7 @@ body {
 	}
 
 	.section-heading {
-		// @include text-tracked;
+		// @include tracking;
 		@include block-separator;
 		margin-bottom: 1em;
 		font-weight: bold;

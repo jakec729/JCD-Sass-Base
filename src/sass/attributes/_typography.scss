@@ -8,7 +8,7 @@
 /* Mixins */
 /* -------------------------------------- */
 
-@mixin text-tracked($tracking: $default-tracking) {
+@mixin tracking($tracking: $default-tracking) {
 	text-transform: uppercase;
 	letter-spacing: $tracking;
 }
@@ -30,24 +30,6 @@
 			margin-left: auto;
 			margin-right: auto;
 		}	
-	}
-}
-
-@mixin comma-list(){
-	li {
-		display: inline-block;
-
-		&:after {
-			content: ","
-		}
-
-		&:last-of-type:after {
-			content: "";
-		}
-
-		& + li {
-			margin-left: .25rem;
-		}
 	}
 }
 
@@ -133,10 +115,6 @@ hr {
 	margin: $base-type-margin 0;
 }
 
-figure {
-	margin: $base-block-margin 0;
-}
-
 hr{
 	border: none;
 	background: $headline-color;
@@ -148,6 +126,10 @@ blockquote {
 	font-size: modular-type(2);
 	padding: 1em 0 1em 1.5em;
 	border-left: 2px solid $accent-color;
+}
+
+figure {
+	margin: $base-block-margin 0;
 }
 
 figcaption {
@@ -172,15 +154,6 @@ a {
 p {
 	line-height: $base-line-height;
 }
-
-ol {
-	list-style-type: decimal-leading-zero;
-}
-
-li {
-	margin: .5em 0;
-}
-
 
 
 /* Helpers */
@@ -214,7 +187,7 @@ li {
 }
 
 .tracked {
-	@include text-tracked();
+	@include tracking();
 }
 
 .lead {

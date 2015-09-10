@@ -1,4 +1,3 @@
-
 .longform {
 
 	aside,
@@ -47,40 +46,6 @@
 		@include context-outdent( $longform-figure-outdent, $longform-content-width );
 	}
 
-	// figure {
-	// 	position: relative;
-
-	// 	@include bp-min($medium-screen){
-	// 		margin-left: -4em;
-	// 		margin-right: -4em;
-	// 		display: block;
-
-	// 		&.caption-left,
-	// 		&.caption-right{
-	// 			margin-left: 0;
-	// 			margin-right: 0;
-
-	// 			figcaption {
-	// 				width: ($story-aside-width - $story-aside-gutter);
-	// 				position: absolute;
-	// 				top: 0;
-	// 				padding-top: .75rem;
-	// 				border-top: 4px solid $off-white;			
-	// 				border-bottom: none;
-	// 			}
-	// 		}
-
-	// 		&.caption-left figcaption {
-	// 			left: (-1 * $story-aside-width);
-	// 		}
-
-	// 		&.caption-right figcaption {
-	// 			right: (-1 * $story-aside-width);
-	// 		}
-	// 	}
-
-	// }
-
 	aside,
 	aside p,
 	figcaption {
@@ -95,32 +60,4 @@
 		border-bottom: 1px solid $off-white;
 	}
 
-	// aside{
-	// 	padding-top: .75rem;
-	// 	border-top: 4px solid $off-white;			
-	// }
-
-	// 	@include bp-min($medium-screen){
-
-	// 		&.aside-left,
-	// 		&.aside-right {
-	// 			width: ($story-aside-width - $story-aside-gutter);	
-	// 			margin-top: 0;
-	// 		}
-
-	// 		&.aside-left {
-	// 			float: left;
-	// 			margin-left: (-1 * $story-aside-width);
-	// 		}
-
-	// 		&.aside-right {
-	// 			float: right;
-	// 			margin-right: -(-1 * $story-aside-width);
-	// 		}
-	// 	}
-
-	// 	p{
-	// 		margin: 0;
-	// 	}
-	// }
 }
