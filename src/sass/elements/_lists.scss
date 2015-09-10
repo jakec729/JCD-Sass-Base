@@ -20,6 +20,15 @@
 	}
 }
 
+@mixin list-unstyled {
+	list-style: none;
+	margin-left: 0;
+}
+
+.list-unstyled {
+	@include list-unstyled;
+}
+
 
 @mixin list-inline($spacing: .5em) {
 	list-style: none;
@@ -37,6 +46,10 @@
 	li > a {
 		display: block;
 	}
+}
+
+.list-inline {
+	@include list-inline;
 }
 
 @mixin comma-list(){
