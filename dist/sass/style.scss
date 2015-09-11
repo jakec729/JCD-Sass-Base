@@ -12,6 +12,7 @@
 
 // STYLING
 @import "attributes/responsive";
+@import "attributes/color";
 @import "attributes/typography";
 @import "attributes/animation";
 @import "attributes/borders";
@@ -24,7 +25,7 @@
 
 // COMPONENTS
 @import "components/grid";
-@import "components/story";
+@import "components/longform";
 @import "components/nav";
 
 // SECTIONS

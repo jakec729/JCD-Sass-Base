@@ -33,24 +33,6 @@
 	}
 }
 
-@mixin comma-list(){
-	li {
-		display: inline-block;
-
-		&:after {
-			content: ","
-		}
-
-		&:last-of-type:after {
-			content: "";
-		}
-
-		& + li {
-			margin-left: .25rem;
-		}
-	}
-}
-
 @mixin indent($indent: $base-indent){
 	margin-left: $indent;
 	margin-right: $indent;
@@ -133,10 +115,6 @@ hr {
 	margin: $base-type-margin 0;
 }
 
-figure {
-	margin: $base-block-margin 0;
-}
-
 hr{
 	border: none;
 	background: $headline-color;
@@ -148,6 +126,10 @@ blockquote {
 	font-size: modular-type(2);
 	padding: 1em 0 1em 1.5em;
 	border-left: 2px solid $accent-color;
+}
+
+figure {
+	margin: $base-block-margin 0;
 }
 
 figcaption {

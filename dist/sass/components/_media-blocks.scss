@@ -1,7 +1,3 @@
-.media-blocks {
-
-}
-
 .media-block {
 	@include bp-max($medium-screen) {
 		& + & {

@@ -59,7 +59,7 @@ $background-color:	$off-white !default;
 
 // Base Sizes
 $base-font-size: 16px !default;
-$base-line-height: 1.4em !default;
+$base-line-height: 1.6em !default;
 $base-type-margin: 1.5em !default;
 $base-block-margin: (2 * $base-type-margin) !default;
 $modular-type-ratio: (6/5) !default;
@@ -67,7 +67,7 @@ $default-tracking: .2em !default;
 
 // Base Fonts
 $font-serif: "Adobe Garamond Pro", Georgia, serif !default;
-$font-sans: "Franklin Gothic Book", Helveitca, Arial, sans-serif !default;
+$font-sans: "Roboto", "Franklin Gothic Book", Helveitca, Arial, sans-serif !default;
 $headline-font: $font-sans !default;
 $body-font: $font-sans !default;
 
@@ -128,12 +128,8 @@ $default-gutter: 2% !default;
 $default-total-cols: 12 !default;
 
 
-/* Story Vars */
+/* Longform Vars */
 /* -------------------------------------- */
-
-// $story-indent: 10% !default;
-// $story-aside-width: $story-indent !default;
-// $story-aside-gutter: $default-gutter !default;
 
 @function context( $desired, $container ){
 	@return $desired / $container * 100%;
@@ -142,8 +138,7 @@ $default-total-cols: 12 !default;
 $longform-content-width: 60%;
 $longform-sidebar-width: (100% - $longform-content-width) / 2;
 $longform-aside-width: context($longform-sidebar-width, $longform-content-width);
-$longform-figure-outdent: 5%;
-
+$longform-figure-outdent: 2rem;
 
 
 /* Layout Vars */
