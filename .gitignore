@@ -4,4 +4,7 @@ node_modules
 gulpfile.js
 package.json
 src
+index.html
+views
+examples
 
